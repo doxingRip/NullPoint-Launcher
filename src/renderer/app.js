@@ -1,0 +1,10 @@
+const $=s=>document.querySelector(s);
+const tabs=[...document.querySelectorAll('.tab')];
+tabs.forEach(tab=>tab.onclick=()=>{tabs.forEach(x=>x.classList.remove('active'));tab.classList.add('active');document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));$('#'+tab.dataset.page).classList.add('active')});
+$('#minimize').onclick=()=>window.nullpoint.window.minimize();$('#close').onclick=()=>window.nullpoint.window.close();
+const ram=$('#ram');const ramValue=$('#ramValue');ram.oninput=()=>ramValue.textContent=`${ram.value} MB`;
+(async()=>{const s=await window.nullpoint.settings.get();ram.value=s.ram_mb;ramValue.textContent=`${s.ram_mb} MB`;$('#clientPath').value=s.client_path||'';const p=await window.nullpoint.profile.get();if(p){$('#login').textContent=p.login;$('#uid').textContent=p.uid;$('#expires').textContent=p.expires_at||'Активна';if(p.avatar)$('#avatar').style.background=`center/cover url('${p.avatar}')`;}})();
+$('#choosePath').onclick=async()=>{const p=await window.nullpoint.settings.choosePath();if(p)$('#clientPath').value=p};
+$('#save').onclick=async()=>{await window.nullpoint.settings.set({ram_mb:Number(ram.value),client_path:$('#clientPath').value});$('#save').textContent='Сохранено ✓';setTimeout(()=>$('#save').textContent='Сохранить',1200)};
+$('#logout').onclick=async()=>{await window.nullpoint.auth.logout();location.reload()};
+$('#play').onclick=()=>{const b=$('#play');b.textContent='ЗАПУСК...';setTimeout(()=>b.textContent='ИГРАТЬ',1200)};

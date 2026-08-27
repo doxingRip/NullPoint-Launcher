@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>NullPoint Launcher</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="titlebar">
+    <div class="brand">NULL<span>POINT</span></div>
+    <div class="window-actions"><button id="minimize">—</button><button id="close">×</button></div>
+  </header>
+  <main>
+    <section id="home" class="page active">
+      <div class="hero" id="hero-image"><div class="hero-overlay"><div class="eyebrow">MINECRAFT CLIENT</div><h1>NULLPOINT</h1><p>Выбери версию и запускай игру.</p></div></div>
+      <div class="launch-panel">
+        <div><label>Версия</label><select id="version"><option>1.21.8</option><option>1.21.7</option><option>1.20.6</option><option>1.20.4</option></select></div>
+        <button class="play" id="play">ИГРАТЬ</button>
+      </div>
+    </section>
+    <section id="account" class="page">
+      <div class="card account-card"><div class="avatar" id="avatar">NP</div><h2 id="login">Гость</h2><div class="meta"><div><small>UID</small><strong id="uid">—</strong></div><div><small>ПОДПИСКА</small><strong id="expires">—</strong></div></div><div class="needed"><b>НУЖНОЕ</b><p>Полезные ссылки NullPoint</p><div><button data-url="site">Сайт</button><button data-url="discord">Discord</button></div></div></div>
+    </section>
+    <section id="settings" class="page">
+      <div class="card settings-card"><h2>Настройки</h2><label>Оперативная память <b id="ramValue">4096 MB</b></label><input id="ram" type="range" min="1024" max="32768" step="1024" value="4096"><div class="path-row"><input id="clientPath" placeholder="Расположение клиента"><button id="choosePath">Выбрать</button></div><button class="save" id="save">Сохранить</button></div>
+    </section>
+  </main>
+  <nav><button class="tab active" data-page="home">Главная</button><button class="tab" data-page="account">Аккаунт</button><button class="tab" data-page="settings">Настройки</button><button class="logout" id="logout">Выйти</button></nav>
+  <script src="app.js"></script>
+</body>
+</html>

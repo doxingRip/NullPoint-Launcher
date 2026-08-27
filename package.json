@@ -1,0 +1,9 @@
+{
+  "name": "nullpoint-launcher",
+  "version": "0.1.0",
+  "description": "NullPoint Minecraft Client Launcher",
+  "main": "src/main.js",
+  "scripts": {"start":"electron .","dev":"electron .","build":"electron-builder"},
+  "dependencies": {"better-sqlite3":"^11.10.0"},
+  "devDependencies": {"electron":"^37.3.1","electron-builder":"^26.0.12"}
+}
